@@ -10,10 +10,39 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
+  <header class="red">
+    <div class="container">
+      <div class="header-row">
+        <div class="column-full">
+          <img src="images/pokedatafont.png" alt="PokeData">
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div data-view="search-pokemon" class="view">
+        <form>
+          <div class="search-row">
+            <input required class="search-bar" type="text" placeholder="Search..">
+          </div>
+          <div class="search-submit">
+            <input type="submit" value="Search">
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
+  <footer>
+    <div class="red bottom-container">
+      <div class="footer-row">
+        <div class="column-full">
+          <a><img class="search-icon" src="images/search-solid.svg"></a>
+          <h4>Search</h4>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
