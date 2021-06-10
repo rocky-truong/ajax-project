@@ -1,6 +1,6 @@
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
   }
 
@@ -16,6 +16,12 @@
 
 @media (orientation: landscape) {
   footer {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) {
+  .search-link {
     display: none;
   }
 }

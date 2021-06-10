@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
   <header class="red">
@@ -15,14 +16,14 @@
       <div class="header-row">
         <div class="column-full">
           <img src="images/pokedatafont.png" alt="PokeData">
-          <a href="#" class="search-link">Search</a>
+          <a href="#" class="search-link search-task" data-view="search-pokemon">Search</a>
         </div>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div data-view="search-pokemon" class="view">
+      <div data-view="search-pokemon" class="view hidden" id="searchBar">
         <form>
           <div class="search-row">
             <input required class="search-bar" type="text" placeholder="Search..">
@@ -38,8 +39,10 @@
     <div class="red bottom-container">
       <div class="footer-row">
         <div class="column-full">
-          <a href="#"><img class="icon" src="images/search-solid.svg"></a>
-          <h4>Search</h4>
+          <a href="#" class="red search-button search-task" data-view="search-pokemon">
+            <i class="fas fa-search fa-2x icon"></i>
+            <h4>Search</h4>
+          </a>
         </div>
       </div>
     </div>
