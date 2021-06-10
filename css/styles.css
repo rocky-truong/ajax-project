@@ -18,26 +18,53 @@ header {
   padding-left: 10px;
 }
 
+.search-link {
+  color: white;
+  text-decoration: none;
+}
+
 .search-row {
   text-align: center;
   padding-top: 10px;
 }
 
-.search-icon {
+.icon {
   width: 30px;
   height: 30px;
-  color: white;
   margin-left: 5px;
+}
+
+h4 {
+  color: white;
 }
 
 .search-bar {
   margin-top: 20px;
-  width: 80%;
+  width: 90%;
+  height: 2em;
+  border: 2px solid #d0091b;
+  border-radius: 6px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.search-bar:focus {
+  border: 2px solid #d0091b;
+  outline: none;
 }
 
 .search-submit {
-  padding-top: 10px;
+  padding-top: 15px;
   text-align: right;
+  padding-right: 5%;
+}
+
+.submit-button {
+  color: white;
+  background-color: #d0091b;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
 }
 
 .footer-row {
