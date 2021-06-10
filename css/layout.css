@@ -4,13 +4,13 @@
     margin: auto;
   }
 
-  .column-full,
-  .column-half {
-    padding: 0 0.75rem;
-  }
-
   .column-half {
     width: 50%;
+  }
+
+  .pokemon-card {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }
 
@@ -23,5 +23,9 @@
 @media (orientation: portrait) {
   .search-link {
     display: none;
+  }
+
+  .column-half {
+    width: 100%;
   }
 }
