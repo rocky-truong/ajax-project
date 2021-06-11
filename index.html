@@ -25,7 +25,7 @@
   </header>
   <main>
     <div class="container">
-      <div data-view="search-pokemon" class="view" id="searchBar">
+      <div data-view="search-pokemon" class="view hidden" id="searchBar">
         <form>
           <div class="search-row">
             <input required class="search-bar" type="text" placeholder="Search..">
@@ -63,10 +63,12 @@
       </div>
       <div data-view="view-pokemon" class="view">
         <ul>
-          <li>
+          <li class="no-bullets">
+            <div class="pokemon-detail">
             <h1>Muk</h1>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png" alt="Muk">
-            <p>Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison.</p>
+            <img class="detail-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png" alt="Muk">
+            <p class="description">Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison.</p>
+            </div>
           </li>
         </ul>
       </div>

@@ -7,6 +7,7 @@ body {
   background-color: #efefef;
 }
 
-h5 {
+h5,
+h1 {
   margin: 0;
 }
