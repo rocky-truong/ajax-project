@@ -103,10 +103,6 @@ h5 {
   margin: 0;
 }
 
-.detail-img {
-  width: 150px;
-}
-
 /* .pokemon-card {
   display: flex;
   border: 3px solid black;
@@ -116,7 +112,14 @@ h5 {
   height: 80px;
 } */
 
-ul {
-  padding: 20px 40px;
+.detail-ul {
+  padding: 20px;
   text-align: center;
+
+  /* width: 550px;
+  margin: auto; */
+}
+
+.detail-name {
+  margin-top: 10px;
 }

@@ -8,6 +8,15 @@
     width: 50%;
   }
 
+  .detail-ul {
+    width: 550px;
+    margin: auto;
+  }
+
+  .detail-img {
+    width: 250px;
+  }
+
   /* .pokemon-card {
     margin-right: 20px;
     margin-left: 20px;
@@ -27,5 +36,9 @@
 
   .column-half {
     width: 100%;
+  }
+
+  .detail-img {
+    width: 150px;
   }
 }
