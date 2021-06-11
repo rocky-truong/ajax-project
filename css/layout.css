@@ -8,10 +8,10 @@
     width: 50%;
   }
 
-  .pokemon-card {
+  /* .pokemon-card {
     margin-right: 20px;
     margin-left: 20px;
-  }
+  } */
 }
 
 @media (orientation: landscape) {
