@@ -80,6 +80,10 @@ h5 {
   margin-bottom: 10px;
 }
 
+.submit-button:hover {
+  cursor: pointer;
+}
+
 .footer-row {
   display: flex;
   justify-content: center;
