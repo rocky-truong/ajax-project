@@ -110,9 +110,6 @@ h5 {
 .detail-ul {
   padding: 20px;
   text-align: center;
-
-  /* width: 550px;
-  margin: auto; */
 }
 
 .detail-name {
@@ -125,12 +122,3 @@ h5 {
   font-size: 18px;
   font-weight: bold;
 }
-
-/* .pokemon-card {
-  display: flex;
-  border: 3px solid black;
-  border-radius: 4px;
-  align-items: center;
-  margin-bottom: 30px;
-  height: 80px;
-} */

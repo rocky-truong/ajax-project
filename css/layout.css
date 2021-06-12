@@ -16,11 +16,6 @@
   .detail-img {
     width: 250px;
   }
-
-  /* .pokemon-card {
-    margin-right: 20px;
-    margin-left: 20px;
-  } */
 }
 
 @media (orientation: landscape) {
