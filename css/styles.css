@@ -123,3 +123,10 @@ h5 {
 .detail-name {
   margin-top: 10px;
 }
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
