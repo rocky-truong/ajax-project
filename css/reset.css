@@ -4,4 +4,10 @@
 
 body {
   margin: 0;
+  background-color: #efefef;
+}
+
+h5,
+h1 {
+  margin: 0;
 }

@@ -1,0 +1,39 @@
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .column-half {
+    width: 50%;
+  }
+
+  .detail-ul {
+    width: 550px;
+    margin: auto;
+  }
+
+  .detail-img {
+    width: 250px;
+  }
+}
+
+@media (orientation: landscape) {
+  footer {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) {
+  .search-link {
+    display: none;
+  }
+
+  .column-half {
+    width: 100%;
+  }
+
+  .detail-img {
+    width: 150px;
+  }
+}
