@@ -51,6 +51,7 @@ function getPokemonDetail(name) {
       return;
     }
     $description.textContent = this.response.flavor_text_entries[1].flavor_text;
+    // console.log(xhr2.response);
   });
   xhr.send();
   xhr2.send();

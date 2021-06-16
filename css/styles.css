@@ -98,7 +98,8 @@ h5 {
   list-style-type: none;
 }
 
-.pokemon-detail {
+.pokemon-detail,
+.pokemon-evolution {
   border: 3px solid black;
 }
 
@@ -121,4 +122,28 @@ h5 {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+}
+
+.pokemon-evolution {
+  margin-top: 20px;
+}
+
+.row-evolution {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+h6 {
+  font-weight: 400;
+}
+
+.evolution-arrow {
+  padding: 0 30px;
+}
+
+.pokemon-evolution-name {
+  margin: 0;
+  padding-bottom: 10px;
 }

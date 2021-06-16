@@ -36,13 +36,30 @@
         </form>
         <p class="error view hidden">No Pokemon found. Double-check the spelling and try again.</p>
       </div>
-      <div data-view="view-pokemon" class="view hidden" id="view-pokemon">
+      <div data-view="view-pokemon" class="view" id="view-pokemon">
         <ul class="detail-ul" id="detail-ul">
           <li class="no-bullets">
             <div class="pokemon-detail">
               <h1 class="detail-name"></h1>
               <img class="detail-img" alt="pokemon image">
               <p class="description" id="description"></p>
+            </div>
+            <div class="pokemon-evolution">
+              <h2>Evolution Chart</h2>
+              <div class="row-evolution">
+                <div>
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/88.png">
+                  <p class="pokemon-evolution-name">Grimer</p>
+                </div>
+                <div class="evolution-arrow">
+                  <i class="fas fa-long-arrow-alt-right fa-2x"></i>
+                  <h6>Level 38</h6>
+                </div>
+                <div>
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png">
+                  <p class="pokemon-evolution-name">Muk</p>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
