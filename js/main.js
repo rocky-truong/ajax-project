@@ -61,7 +61,7 @@ function handleSubmit(event) {
   $detailName.textContent = '';
   $detailImg.setAttribute('src', '');
   $description.textContent = '';
-  getPokemonDetail($form.elements.name.value);
+  getPokemonDetail($form.elements.name.value.toLowerCase());
   $form.reset();
 
   var dataView = 'view-pokemon';
