@@ -2,7 +2,8 @@
 var data = {
   currentPokemon: {
     name: '',
-    sprite: ''
+    sprite: '',
+    description: ''
   },
   evolutions: {
   }

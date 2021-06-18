@@ -26,6 +26,62 @@ function handleSearch(event) {
   }
 }
 
+function getPokemonData(name, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    data.currentPokemon.name = xhr.response.name;
+    data.currentPokemon.sprite = xhr.response.sprites.front_default;
+    $detailName.textContent = data.currentPokemon.name.charAt(0).toUpperCase() + xhr.response.name.slice(1);
+    $detailImg.setAttribute('src', data.currentPokemon.sprite);
+    callback(xhr.response);
+  });
+  xhr.send();
+  getSpeciesData(name);
+  console.log(data.currentPokemon);
+}
+
+function getSpeciesData(name) {
+  var xhr2 = new XMLHttpRequest();
+  xhr2.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + name);
+  xhr2.responseType = 'json';
+  xhr2.addEventListener('load', function () {
+    data.currentPokemon.description = this.response.flavor_text_entries[1].flavor_text;
+    $description.textContent = data.currentPokemon.description;
+  });
+  xhr2.send();
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  getPokemonData($form.elements.name.value.toLowerCase(), getFirstPokemon);
+  $form.reset();
+
+  var dataView = 'view-pokemon';
+  for (var i = 0; i < $allView.length; i++) {
+    if ($allView[i].getAttribute('data-view') !== dataView) {
+      $allView[i].className = 'view hidden';
+    } else {
+      $allView[i].className = 'view';
+    }
+  }
+}
+
+function getFirstPokemon(name) {
+  var $divPokemon = document.createElement('div');
+  var $imgPokemon = document.createElement('img');
+  $imgPokemon.setAttribute('src', data.currentPokemon.sprite);
+  $imgPokemon.setAttribute('alt', 'pokemon');
+  var $pPokemon = document.createElement('p');
+  $pPokemon.setAttribute('class', 'pokemon-evolution-name');
+  var pName = data.currentPokemon.name.charAt(0).toUpperCase() + data.currentPokemon.name.slice(1);
+  $pPokemon.textContent = pName;
+  $divPokemon.appendChild($imgPokemon);
+  $divPokemon.appendChild($pPokemon);
+  $rowEvolution.appendChild($divPokemon);
+}
+
 // function getPokemonDetail(name) {
 //   var evolution = null;
 //   var xhr = new XMLHttpRequest();
@@ -74,26 +130,6 @@ function handleSearch(event) {
 //   xhr2.send();
 // }
 
-// function getFirstPokemon(name) {
-//   var xhr4 = new XMLHttpRequest();
-//   xhr4.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
-//   xhr4.responseType = 'json';
-//   xhr4.addEventListener('load', function () {
-//     var $divPokemon = document.createElement('div');
-//     var $imgPokemon = document.createElement('img');
-//     $imgPokemon.setAttribute('src', xhr4.response.sprites.front_default);
-//     $imgPokemon.setAttribute('alt', 'pokemon');
-//     var $pPokemon = document.createElement('p');
-//     $pPokemon.setAttribute('class', 'pokemon-evolution-name');
-//     var pName = xhr4.response.name.charAt(0).toUpperCase() + xhr4.response.name.slice(1);
-//     $pPokemon.textContent = pName;
-//     $divPokemon.appendChild($imgPokemon);
-//     $divPokemon.appendChild($pPokemon);
-//     $rowEvolution.appendChild($divPokemon);
-//   });
-//   xhr4.send();
-// }
-
 // function getSecondPokemon(name) {
 //   var xhr6 = new XMLHttpRequest();
 //   xhr6.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + name);
@@ -134,21 +170,3 @@ function handleSearch(event) {
 //   xhr6.send();
 //   xhr5.send();
 // }
-
-function handleSubmit(event) {
-  event.preventDefault();
-  $detailName.textContent = '';
-  $detailImg.setAttribute('src', '');
-  $description.textContent = '';
-  getPokemonDetail($form.elements.name.value.toLowerCase());
-  $form.reset();
-
-  var dataView = 'view-pokemon';
-  for (var i = 0; i < $allView.length; i++) {
-    if ($allView[i].getAttribute('data-view') !== dataView) {
-      $allView[i].className = 'view hidden';
-    } else {
-      $allView[i].className = 'view';
-    }
-  }
-}
