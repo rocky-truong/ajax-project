@@ -3,8 +3,11 @@ var data = {
   currentPokemon: {
     name: '',
     sprite: '',
-    description: ''
+    description: '',
+    evolution_chain: ''
   },
-  evolutions: {
+  evolutionPokemon: {
+    name: '',
+    sprite: ''
   }
 };

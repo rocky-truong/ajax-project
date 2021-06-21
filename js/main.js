@@ -31,26 +31,50 @@ function getPokemonData(name, callback) {
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    data.currentPokemon.name = xhr.response.name;
-    data.currentPokemon.sprite = xhr.response.sprites.front_default;
-    $detailName.textContent = data.currentPokemon.name.charAt(0).toUpperCase() + xhr.response.name.slice(1);
+    data.currentPokemon.name = this.response.name;
+    data.currentPokemon.sprite = this.response.sprites.front_default;
+    $detailName.textContent = data.currentPokemon.name.charAt(0).toUpperCase() + data.currentPokemon.name.slice(1);
     $detailImg.setAttribute('src', data.currentPokemon.sprite);
     callback(xhr.response);
   });
   xhr.send();
-  getSpeciesData(name);
+  getSpeciesData(name, getSecondPokemon);
   console.log(data.currentPokemon);
 }
 
-function getSpeciesData(name) {
+function getSpeciesData(name, callback) {
   var xhr2 = new XMLHttpRequest();
   xhr2.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + name);
   xhr2.responseType = 'json';
   xhr2.addEventListener('load', function () {
     data.currentPokemon.description = this.response.flavor_text_entries[1].flavor_text;
     $description.textContent = data.currentPokemon.description;
+    data.currentPokemon.evolution_chain = this.response.evolution_chain;
+    console.log(data.currentPokemon.evolution_chain);
+    callback(data.currentPokemon.evolution_chain);
   });
   xhr2.send();
+}
+
+function getSecondPokemon(responseObject) {
+  console.log(responseObject.url);
+  console.log(typeof responseObject.url);
+  var xhr7 = new XMLHttpRequest();
+  xhr7.open('GET', responseObject.url);
+  xhr7.responseType = 'json';
+  xhr7.addEventListener('load', function () {
+    console.log(xhr7.response);
+    var $divArrow = document.createElement('div');
+    $divArrow.setAttribute('class', 'evolution-arrow');
+    var $iArrow = document.createElement('i');
+    $iArrow.setAttribute('class', 'fas fa-long-arrow-alt-right fa-2x');
+    var $h6Level = document.createElement('h6');
+    $h6Level.textContent = 'Level ' + xhr7.response.chain.evolves_to[0].evolution_details[0].min_level;
+    $divArrow.appendChild($iArrow);
+    $divArrow.appendChild($h6Level);
+    $rowEvolution.appendChild($divArrow);
+  });
+  xhr7.send();
 }
 
 function handleSubmit(event) {
@@ -130,24 +154,6 @@ function getFirstPokemon(name) {
 //   xhr2.send();
 // }
 
-// function getSecondPokemon(name) {
-//   var xhr6 = new XMLHttpRequest();
-//   xhr6.open('GET', 'https://pokeapi.co/api/v2/pokemon-species/' + name);
-//   xhr6.responseType = 'json';
-//   xhr6.addEventListener('load', function () {
-//     var xhr7 = new XMLHttpRequest();
-//     xhr7.open('GET', xhr6.response.evolution_chain.url);
-//     xhr7.responseType = 'json';
-//     xhr7.addEventListener('load', function () {
-//       var $divArrow = document.createElement('div');
-//       $divArrow.setAttribute('class', 'evolution-arrow');
-//       var $iArrow = document.createElement('i');
-//       $iArrow.setAttribute('class', 'fas fa-long-arrow-alt-right fa-2x');
-//       var $h6Level = document.createElement('h6');
-//       $h6Level.textContent = 'Level ' + xhr7.response.chain.evolves_to[0].evolution_details[0].min_level;
-//       $divArrow.appendChild($iArrow);
-//       $divArrow.appendChild($h6Level);
-//       $rowEvolution.appendChild($divArrow);
 //     });
 //     xhr7.send();
 //   });
