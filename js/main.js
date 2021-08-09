@@ -78,6 +78,7 @@ function handleSubmit(event) {
 }
 
 var isFavorite = false;
+
 function handleFavorite(event) {
   if (!isFavorite) {
     isFavorite = true;
