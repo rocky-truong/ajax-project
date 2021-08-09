@@ -8,10 +8,13 @@ var $detailImg = document.querySelector('.detail-img');
 var $description = document.querySelector('.description');
 var $errorCode = document.querySelector('.error');
 var $viewPokemon = document.querySelector('#view-pokemon');
+var $favoriteButton = document.querySelector('.favorite-button');
+var $faHeart = document.querySelector('.fa-heart');
 
 $searchLink.addEventListener('click', handleSearch);
 $searchButton.addEventListener('click', handleSearch);
 $form.addEventListener('submit', handleSubmit);
+$favoriteButton.addEventListener('click', handleFavorite);
 
 function handleSearch(event) {
   var closest = event.target.closest('.search-task');
@@ -71,5 +74,19 @@ function handleSubmit(event) {
     } else {
       $allView[i].className = 'view';
     }
+  }
+}
+
+var isFavorite = false;
+function handleFavorite(event) {
+  if (!isFavorite) {
+    isFavorite = true;
+    $faHeart.className = 'fas fa-heart fa-2x red-color';
+    return;
+  }
+  if (isFavorite) {
+    isFavorite = false;
+    $faHeart.className = 'far fa-heart fa-2x';
+
   }
 }
