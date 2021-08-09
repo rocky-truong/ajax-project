@@ -122,3 +122,14 @@ h5 {
   font-size: 18px;
   font-weight: bold;
 }
+
+.fa-heart {
+  position: fixed;
+  text-align: end;
+  right: 2em;
+  top: 130px;
+}
+
+button {
+  border: 0;
+}
