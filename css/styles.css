@@ -123,11 +123,16 @@ h5 {
   font-weight: bold;
 }
 
+.pokemon-name-heart {
+  display: flex;
+}
+
+.column-one-third {
+  flex-basis: calc(100% / 3);
+}
+
 .fa-heart {
-  position: fixed;
-  text-align: end;
-  right: 2em;
-  top: 130px;
+  margin-top: 10px;
 }
 
 .fa-heart:hover {
