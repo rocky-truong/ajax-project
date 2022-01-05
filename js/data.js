@@ -5,9 +5,9 @@ if (previousFavorites !== null) {
   favorites = JSON.parse(previousFavorites);
 }
 
-window.addEventListener('beforeunload', jsonHandler);
+window.addEventListener('beforeunload', handleJSON);
 
-function jsonHandler(event) {
+function handleJSON(event) {
   var favoritesJSON = JSON.stringify(favorites);
   localStorage.setItem('pokedata-local-storage', favoritesJSON);
 }
