@@ -1,3 +1,5 @@
+/* global data */
+/* exported data */
 var $searchLink = document.querySelector('.search-link');
 var $searchButton = document.querySelector('.search-button');
 var $allView = document.querySelectorAll('.view');
@@ -9,7 +11,7 @@ var $description = document.querySelector('.description');
 var $errorCode = document.querySelector('.error');
 var $viewPokemon = document.querySelector('#view-pokemon');
 var $favoriteButton = document.querySelector('.favorite-button');
-var $faHeart = document.querySelector('.fa-heart');
+// var $faHeart = document.querySelector('.fa-heart');
 
 $searchLink.addEventListener('click', handleSearch);
 $searchButton.addEventListener('click', handleSearch);
@@ -77,17 +79,23 @@ function handleSubmit(event) {
   }
 }
 
-var isFavorite = false;
-
 function handleFavorite(event) {
-  if (!isFavorite) {
-    isFavorite = true;
-    $faHeart.className = 'fas fa-heart fa-2x red-color';
-    return;
-  }
-  if (isFavorite) {
-    isFavorite = false;
-    $faHeart.className = 'far fa-heart fa-2x';
-
-  }
+  // var isFavorite = false;
+  // if (!isFavorite) {
+  //   isFavorite = true;
+  //   $faHeart.className = 'fas fa-heart fa-2x red-color';
+  //   return;
+  // }
+  // if (isFavorite) {
+  //   isFavorite = false;
+  //   $faHeart.className = 'far fa-heart fa-2x';
+  // }
+  var newFavorite = {
+    name: $detailName.textContent,
+    image: $detailImg.src,
+    description: $description.textContent,
+    favoriteId: data.nextFavoriteId
+  };
+  data.favorites.unshift(newFavorite);
+  data.nextFavoriteId++;
 }
