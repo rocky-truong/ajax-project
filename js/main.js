@@ -78,12 +78,9 @@ function handleSubmit(event) {
       $allView[i].className = 'view';
     }
   }
-  console.log(data.favorites);
-  console.log(shortName);
   for (var j = 0; j < data.favorites.length; j++) {
     if (data.favorites[j].name === shortName) {
       $faHeart.className = 'fas fa-heart fa-2x red-color';
-      console.log('it works');
       break;
     } else {
       $faHeart.className = 'far fa-heart fa-2x';
@@ -94,7 +91,7 @@ function handleSubmit(event) {
 function handleFavorite(event) {
   var exist = false;
   for (var i = 0; i < data.favorites.length; i++) {
-    if (data.favorites[i].name === $detailName.textContent) {
+    if (data.favorites[i].name === $detailName.textContent.toLowerCase()) {
       exist = true;
       break;
     }
@@ -110,5 +107,4 @@ function handleFavorite(event) {
     data.favorites.push(newFavorite);
     data.nextFavoriteId++;
   }
-  window.location.reload();
 }
