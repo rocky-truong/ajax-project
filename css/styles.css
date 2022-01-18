@@ -131,15 +131,15 @@ h5 {
   flex-basis: calc(100% / 3);
 }
 
-.fa-heart {
+.heart-button {
   margin-top: 10px;
 }
 
-.fa-heart:hover {
+.heart-button:hover {
   cursor: pointer;
 }
 
-.fa-heart:active {
+.heart-button:active {
   transform: translate(0, 0.25rem);
 }
 
