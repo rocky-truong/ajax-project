@@ -1,3 +1,5 @@
+/* global data */
+/* exported data */
 var $searchLink = document.querySelector('.search-link');
 var $searchButton = document.querySelector('.search-button');
 var $allView = document.querySelectorAll('.view');
@@ -8,10 +10,13 @@ var $detailImg = document.querySelector('.detail-img');
 var $description = document.querySelector('.description');
 var $errorCode = document.querySelector('.error');
 var $viewPokemon = document.querySelector('#view-pokemon');
+var $favoriteButton = document.querySelector('.favorite-button');
+var $faHeart = document.querySelector('.fa-heart');
 
 $searchLink.addEventListener('click', handleSearch);
 $searchButton.addEventListener('click', handleSearch);
 $form.addEventListener('submit', handleSubmit);
+$favoriteButton.addEventListener('click', handleFavorite);
 
 function handleSearch(event) {
   var closest = event.target.closest('.search-task');
@@ -58,10 +63,11 @@ function getPokemonDetail(name) {
 
 function handleSubmit(event) {
   event.preventDefault();
+  var shortName = $form.elements.name.value.toLowerCase();
   $detailName.textContent = '';
   $detailImg.setAttribute('src', '');
   $description.textContent = '';
-  getPokemonDetail($form.elements.name.value.toLowerCase());
+  getPokemonDetail(shortName);
   $form.reset();
 
   var dataView = 'view-pokemon';
@@ -71,5 +77,34 @@ function handleSubmit(event) {
     } else {
       $allView[i].className = 'view';
     }
+  }
+  for (var j = 0; j < data.favorites.length; j++) {
+    if (data.favorites[j].name === shortName) {
+      $faHeart.className = 'fas fa-heart fa-2x red-color';
+      break;
+    } else {
+      $faHeart.className = 'far fa-heart fa-2x';
+    }
+  }
+}
+
+function handleFavorite(event) {
+  var exist = false;
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].name === $detailName.textContent.toLowerCase()) {
+      exist = true;
+      break;
+    }
+  }
+  if (!exist) {
+    $faHeart.className = 'fas fa-heart fa-2x red-color';
+    var newFavorite = {
+      name: $detailName.textContent.toLowerCase(),
+      image: $detailImg.src,
+      description: $description.textContent,
+      favoriteId: data.nextFavoriteId
+    };
+    data.favorites.push(newFavorite);
+    data.nextFavoriteId++;
   }
 }

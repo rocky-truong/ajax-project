@@ -28,7 +28,7 @@
       <div data-view="search-pokemon" class="view hidden" id="searchBar">
         <form>
           <div class="search-row">
-            <input required class="search-bar" name="name" type="text" placeholder="Search..">
+            <input required class="search-bar" name="name" type="text" placeholder="Search.." autocomplete="off" />
           </div>
           <div class="search-submit">
             <input class="submit-button" type="submit" value="Search">
@@ -40,7 +40,11 @@
         <ul class="detail-ul" id="detail-ul">
           <li class="no-bullets">
             <div class="pokemon-detail">
-              <h1 class="detail-name"></h1>
+              <div class="pokemon-name-heart">
+                <div class="column-one-third"></div>
+                <h1 class="detail-name column-one-third"></h1>
+                <button class="favorite-button column-one-third"><i class="heart-button far fa-heart fa-2x"></i></button>
+              </div>
               <img class="detail-img" alt="pokemon image">
               <p class="description" id="description"></p>
             </div>

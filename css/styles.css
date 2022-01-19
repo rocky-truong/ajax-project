@@ -122,3 +122,31 @@ h5 {
   font-size: 18px;
   font-weight: bold;
 }
+
+.pokemon-name-heart {
+  display: flex;
+}
+
+.column-one-third {
+  flex-basis: calc(100% / 3);
+}
+
+.heart-button {
+  margin-top: 10px;
+}
+
+.heart-button:hover {
+  cursor: pointer;
+}
+
+.heart-button:active {
+  transform: translate(0, 0.25rem);
+}
+
+button {
+  border: 0;
+}
+
+.red-color {
+  color: red;
+}
