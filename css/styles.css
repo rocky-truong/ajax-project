@@ -43,6 +43,7 @@ header {
 .icon {
   color: white;
   margin-left: 5px;
+  text-decoration: none;
 }
 
 h5 {
@@ -88,10 +89,6 @@ h5 {
   display: flex;
   justify-content: center;
   padding-top: 10px;
-}
-
-.search-button {
-  text-decoration: none;
 }
 
 .no-bullets {
@@ -149,4 +146,12 @@ button {
 
 .red-color {
   color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
 }
