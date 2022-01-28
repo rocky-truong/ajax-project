@@ -12,14 +12,16 @@ var $errorCode = document.querySelector('.error');
 var $viewPokemon = document.querySelector('#view-pokemon');
 var $favoriteButton = document.querySelector('.favorite-button');
 var $faHeart = document.querySelector('.fa-heart');
+var $favoritesIcon = document.querySelector('.favorites-icon');
 
-$searchLink.addEventListener('click', handleSearch);
-$searchButton.addEventListener('click', handleSearch);
+$searchLink.addEventListener('click', handleSwitch);
+$searchButton.addEventListener('click', handleSwitch);
+$favoritesIcon.addEventListener('click', handleSwitch);
 $form.addEventListener('submit', handleSubmit);
 $favoriteButton.addEventListener('click', handleFavorite);
 
-function handleSearch(event) {
-  var closest = event.target.closest('.search-task');
+function handleSwitch(event) {
+  var closest = event.target.closest('.task');
   var dataView = closest.getAttribute('data-view');
   for (var i = 0; i < $allView.length; i++) {
     if ($allView[i].getAttribute('data-view') !== dataView) {

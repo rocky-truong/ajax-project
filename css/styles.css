@@ -42,7 +42,6 @@ header {
 
 .icon {
   color: white;
-  margin-left: 5px;
   text-decoration: none;
 }
 
@@ -154,4 +153,9 @@ button {
 
 .flex {
   display: flex;
+}
+
+.favorites-label {
+  text-align: center;
+  padding-top: 20px;
 }
