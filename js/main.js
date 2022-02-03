@@ -13,11 +13,13 @@ var $viewPokemon = document.querySelector('#view-pokemon');
 var $favoriteButton = document.querySelector('.favorite-button');
 var $faHeart = document.querySelector('.fa-heart');
 var $favoritesIcon = document.querySelector('.favorites-icon');
+var $favoritesLink = document.querySelector('.favorites-link');
 var $row = document.querySelector('.row');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
 $favoritesIcon.addEventListener('click', handleSwitch);
+$favoritesLink.addEventListener('click', handleSwitch);
 $form.addEventListener('submit', handleSubmit);
 $favoriteButton.addEventListener('click', handleFavorite);
 
@@ -111,3 +113,8 @@ function handleFavorite(event) {
     data.nextFavoriteId++;
   }
 }
+
+// function renderFavorites(pokemon) {
+//   var $rowDiv = document.createElement('div')
+//   var
+// }
