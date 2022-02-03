@@ -4,6 +4,8 @@
 
 header {
   height: 70px;
+  position: sticky;
+  top: 0;
 }
 
 .red {
@@ -174,4 +176,8 @@ button {
 
 .favorites-heart {
   margin-right: 10px;
+}
+
+.view {
+  margin-bottom: 100px;
 }
