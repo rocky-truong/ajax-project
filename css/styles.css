@@ -94,8 +94,9 @@ h5 {
   list-style-type: none;
 }
 
-.pokemon-detail {
+.border {
   border: 3px solid black;
+  border-radius: 8px;
 }
 
 .description {
@@ -157,5 +158,20 @@ button {
 
 .favorites-label {
   text-align: center;
-  padding-top: 20px;
+}
+
+.slot {
+  display: flex;
+  margin: 20px 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorites-name {
+  font-weight: lighter;
+  flex-grow: 2;
+}
+
+.favorites-heart {
+  margin-right: 10px;
 }

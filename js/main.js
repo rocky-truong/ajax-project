@@ -13,6 +13,7 @@ var $viewPokemon = document.querySelector('#view-pokemon');
 var $favoriteButton = document.querySelector('.favorite-button');
 var $faHeart = document.querySelector('.fa-heart');
 var $favoritesIcon = document.querySelector('.favorites-icon');
+var $row = document.querySelector('.row');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
