@@ -114,7 +114,27 @@ function handleFavorite(event) {
   }
 }
 
-// function renderFavorites(pokemon) {
-//   var $rowDiv = document.createElement('div')
-//   var
-// }
+function renderFavorites(pokemon) {
+  var $slotDiv = document.createElement('div');
+  $slotDiv.setAttribute('class', 'slot border');
+
+  var $img = document.createElement('img');
+  $img.setAttribute('src', pokemon.image);
+  $slotDiv.appendChild($img);
+
+  var $h2 = document.createElement('h2');
+  $h2.setAttribute('class', 'favorites-name');
+  $h2.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  $slotDiv.appendChild($h2);
+
+  var $i = document.createElement('i');
+  $i.setAttribute('class', 'fas fa-heart fa-2x red-color favorites-heart');
+  $slotDiv.appendChild($i);
+
+  return $slotDiv;
+}
+
+for (var i = 0; i < data.favorites.length; i++) {
+  var newFav = renderFavorites(data.favorites[i]);
+  $row.appendChild(newFav);
+}
