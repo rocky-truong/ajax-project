@@ -111,6 +111,7 @@ function handleFavorite(event) {
     };
     data.favorites.push(newFavorite);
     data.nextFavoriteId++;
+    location.reload();
   }
 }
 

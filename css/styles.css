@@ -130,15 +130,15 @@ h5 {
   flex-basis: calc(100% / 3);
 }
 
-.heart-button {
+.favorite-button {
   margin-top: 10px;
 }
 
-.heart-button:hover {
+.favorite-button:hover {
   cursor: pointer;
 }
 
-.heart-button:active {
+.favorite-button:active {
   transform: translate(0, 0.25rem);
 }
 
