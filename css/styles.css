@@ -118,7 +118,14 @@ h5 {
 .error {
   color: red;
   text-align: center;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.no-favorites {
+  color: red;
+  text-align: center;
+  font-size: 24px;
   font-weight: bold;
 }
 

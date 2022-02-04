@@ -15,6 +15,7 @@ var $faHeart = document.querySelector('.fa-heart');
 var $favoritesIcon = document.querySelector('.favorites-icon');
 var $favoritesLink = document.querySelector('.favorites-link');
 var $row = document.querySelector('.row');
+var $noFavorites = document.querySelector('.no-favorites');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
@@ -32,6 +33,9 @@ function handleSwitch(event) {
     } else {
       $allView[i].className = 'view';
     }
+  }
+  if (data.nextFavoriteId === 1) {
+    $noFavorites.setAttribute('class', 'no-favorites view');
   }
 }
 
@@ -138,4 +142,8 @@ function renderFavorites(pokemon) {
 for (var i = 0; i < data.favorites.length; i++) {
   var newFav = renderFavorites(data.favorites[i]);
   $row.appendChild(newFav);
+}
+
+if (data.nextFavoriteId === 1) {
+  $noFavorites.setAttribute('class', 'no-favorites view');
 }
