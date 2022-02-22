@@ -115,7 +115,8 @@ function handleFavorite(event) {
     };
     data.favorites.push(newFavorite);
     data.nextFavoriteId++;
-    location.reload();
+    var newFav = renderFavorites(data.favorites[data.favorites.length - 1]);
+    $row.appendChild(newFav);
   }
 }
 
