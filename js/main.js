@@ -12,14 +12,20 @@ var $errorCode = document.querySelector('.error');
 var $viewPokemon = document.querySelector('#view-pokemon');
 var $favoriteButton = document.querySelector('.favorite-button');
 var $faHeart = document.querySelector('.fa-heart');
+var $favoritesIcon = document.querySelector('.favorites-icon');
+var $favoritesLink = document.querySelector('.favorites-link');
+var $row = document.querySelector('.row');
+var $noFavorites = document.querySelector('.no-favorites');
 
-$searchLink.addEventListener('click', handleSearch);
-$searchButton.addEventListener('click', handleSearch);
+$searchLink.addEventListener('click', handleSwitch);
+$searchButton.addEventListener('click', handleSwitch);
+$favoritesIcon.addEventListener('click', handleSwitch);
+$favoritesLink.addEventListener('click', handleSwitch);
 $form.addEventListener('submit', handleSubmit);
 $favoriteButton.addEventListener('click', handleFavorite);
 
-function handleSearch(event) {
-  var closest = event.target.closest('.search-task');
+function handleSwitch(event) {
+  var closest = event.target.closest('.task');
   var dataView = closest.getAttribute('data-view');
   for (var i = 0; i < $allView.length; i++) {
     if ($allView[i].getAttribute('data-view') !== dataView) {
@@ -27,6 +33,9 @@ function handleSearch(event) {
     } else {
       $allView[i].className = 'view';
     }
+  }
+  if (data.nextFavoriteId === 1) {
+    $noFavorites.setAttribute('class', 'no-favorites view');
   }
 }
 
@@ -106,5 +115,36 @@ function handleFavorite(event) {
     };
     data.favorites.push(newFavorite);
     data.nextFavoriteId++;
+    var newFav = renderFavorites(data.favorites[data.favorites.length - 1]);
+    $row.appendChild(newFav);
   }
+}
+
+function renderFavorites(pokemon) {
+  var $slotDiv = document.createElement('div');
+  $slotDiv.setAttribute('class', 'slot border');
+
+  var $img = document.createElement('img');
+  $img.setAttribute('src', pokemon.image);
+  $slotDiv.appendChild($img);
+
+  var $h2 = document.createElement('h2');
+  $h2.setAttribute('class', 'favorites-name');
+  $h2.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  $slotDiv.appendChild($h2);
+
+  var $i = document.createElement('i');
+  $i.setAttribute('class', 'fas fa-heart fa-2x red-color favorites-heart');
+  $slotDiv.appendChild($i);
+
+  return $slotDiv;
+}
+
+for (var i = 0; i < data.favorites.length; i++) {
+  var newFav = renderFavorites(data.favorites[i]);
+  $row.appendChild(newFav);
+}
+
+if (data.nextFavoriteId === 1) {
+  $noFavorites.setAttribute('class', 'no-favorites view');
 }

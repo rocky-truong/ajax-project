@@ -4,6 +4,8 @@
 
 header {
   height: 70px;
+  position: sticky;
+  top: 0;
 }
 
 .red {
@@ -42,7 +44,7 @@ header {
 
 .icon {
   color: white;
-  margin-left: 5px;
+  text-decoration: none;
 }
 
 h5 {
@@ -90,16 +92,13 @@ h5 {
   padding-top: 10px;
 }
 
-.search-button {
-  text-decoration: none;
-}
-
 .no-bullets {
   list-style-type: none;
 }
 
-.pokemon-detail {
+.border {
   border: 3px solid black;
+  border-radius: 8px;
 }
 
 .description {
@@ -119,7 +118,14 @@ h5 {
 .error {
   color: red;
   text-align: center;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.no-favorites {
+  color: red;
+  text-align: center;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -131,15 +137,15 @@ h5 {
   flex-basis: calc(100% / 3);
 }
 
-.heart-button {
+.favorite-button {
   margin-top: 10px;
 }
 
-.heart-button:hover {
+.favorite-button:hover {
   cursor: pointer;
 }
 
-.heart-button:active {
+.favorite-button:active {
   transform: translate(0, 0.25rem);
 }
 
@@ -149,4 +155,36 @@ button {
 
 .red-color {
   color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.favorites-label {
+  text-align: center;
+}
+
+.slot {
+  display: flex;
+  margin: 20px 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorites-name {
+  font-weight: lighter;
+  flex-grow: 2;
+}
+
+.favorites-heart {
+  margin-right: 10px;
+}
+
+.view {
+  margin-bottom: 100px;
 }

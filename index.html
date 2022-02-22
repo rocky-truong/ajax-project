@@ -18,7 +18,8 @@
       <div class="header-row">
         <div class="column-full">
           <img src="images/pokedatafont.png" alt="PokeData">
-          <a href="#" class="search-link search-task" data-view="search-pokemon">Search</a>
+          <a href="#" class="search-link task" data-view="search-pokemon">Search</a>
+          <a href="#" class="search-link task favorites-link" data-view="view-favorites">Favorites</a>
         </div>
       </div>
     </div>
@@ -39,11 +40,11 @@
       <div data-view="view-pokemon" class="view hidden" id="view-pokemon">
         <ul class="detail-ul" id="detail-ul">
           <li class="no-bullets">
-            <div class="pokemon-detail">
+            <div class="border">
               <div class="pokemon-name-heart">
                 <div class="column-one-third"></div>
                 <h1 class="detail-name column-one-third"></h1>
-                <button class="favorite-button column-one-third"><i class="heart-button far fa-heart fa-2x"></i></button>
+                <button class="favorite-button column-one-third"><i class="far fa-heart fa-2x"></i></button>
               </div>
               <img class="detail-img" alt="pokemon image">
               <p class="description" id="description"></p>
@@ -51,15 +52,27 @@
           </li>
         </ul>
       </div>
+      <div data-view="view-favorites" class="view" id="view-favorites">
+        <h2 class="favorites-label">Favorites</h2>
+        <p class="no-favorites view hidden">There are no favorites yet. Start by searching for a Pokemon to favorite.</p>
+        <div class="row">
+        </div>
+      </div>
     </div>
   </main>
   <footer>
     <div class="red bottom-container">
       <div class="footer-row">
-        <div class="column-full">
-          <a href="#" class="red search-button search-task" data-view="search-pokemon">
+        <div class="column-half center">
+          <a href="#" class="red search-button task icon" data-view="search-pokemon">
             <i class="fas fa-search fa-2x icon"></i>
             <h5>Search</h5>
+          </a>
+        </div>
+        <div class="column-half center">
+          <a href="#" class="icon favorites-icon task" data-view="view-favorites">
+            <i class="fas fa-heart fa-2x icon"></i>
+            <h5>Favorites</h5>
           </a>
         </div>
       </div>

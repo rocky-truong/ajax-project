@@ -22,6 +22,11 @@
   footer {
     display: none;
   }
+
+  .row {
+    width: 50%;
+    margin: auto;
+  }
 }
 
 @media (orientation: portrait) {
