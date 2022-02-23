@@ -16,6 +16,7 @@ var $favoritesIcon = document.querySelector('.favorites-icon');
 var $favoritesLink = document.querySelector('.favorites-link');
 var $row = document.querySelector('.row');
 var $noFavorites = document.querySelector('.no-favorites');
+var $unFavorite = document.querySelector('.unfavorite-button');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
@@ -133,11 +134,19 @@ function renderFavorites(pokemon) {
   $h2.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
   $slotDiv.appendChild($h2);
 
+  var $button = document.createElement('button');
+  $button.setAttribute('class', 'unfavorite-button');
+  $slotDiv.appendChild($button);
+
   var $i = document.createElement('i');
   $i.setAttribute('class', 'fas fa-heart fa-2x red-color favorites-heart');
-  $slotDiv.appendChild($i);
+  $button.appendChild($i);
 
   return $slotDiv;
+}
+
+function unFavorite(event) {
+
 }
 
 for (var i = 0; i < data.favorites.length; i++) {

@@ -188,3 +188,11 @@ button {
 .view {
   margin-bottom: 100px;
 }
+
+.unfavorite-button:hover {
+  cursor: pointer;
+}
+
+.unfavorite-button:active {
+  transform: translate(0, 0.25rem);
+}
