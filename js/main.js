@@ -16,7 +16,8 @@ var $favoritesIcon = document.querySelector('.favorites-icon');
 var $favoritesLink = document.querySelector('.favorites-link');
 var $row = document.querySelector('.row');
 var $noFavorites = document.querySelector('.no-favorites');
-var $unFavorite = document.querySelector('.unfavorite-button');
+// var $unfavoriteButton = document.querySelector('.unfavorite-button');
+var $unfavoriteModal = document.querySelector('#unfavorite-modal');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
@@ -145,10 +146,6 @@ function renderFavorites(pokemon) {
   return $slotDiv;
 }
 
-function unFavorite(event) {
-
-}
-
 for (var i = 0; i < data.favorites.length; i++) {
   var newFav = renderFavorites(data.favorites[i]);
   $row.appendChild(newFav);
@@ -156,4 +153,14 @@ for (var i = 0; i < data.favorites.length; i++) {
 
 if (data.nextFavoriteId === 1) {
   $noFavorites.setAttribute('class', 'no-favorites view');
+}
+
+$row.addEventListener('click', unFavorite);
+
+function unFavorite(event) {
+  if (event.target.className === 'fas fa-heart fa-2x red-color favorites-heart' ||
+  event.target.className === 'unfavorite-button') {
+    console.log('hi');
+    $unfavoriteModal.className = 'unfavorite-modal';
+  }
 }
