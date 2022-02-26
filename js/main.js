@@ -198,7 +198,6 @@ function yesButton(event) {
   $redHeader.className = 'red';
   $redFooter.className = 'red bottom-container';
   $modalContainer.className = '';
-  console.log(pokemon);
   for (var i = 0; i < data.favorites.length; i++) {
     if (data.favorites[i].name === pokemon) {
       data.favorites[i].description = '';
