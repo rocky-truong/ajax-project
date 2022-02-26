@@ -183,7 +183,6 @@ function noButton(event) {
   $redHeader.className = 'red';
   $redFooter.className = 'red bottom-container';
   $modalContainer.className = '';
-
 }
 
 function yesButton(event) {
@@ -193,5 +192,4 @@ function yesButton(event) {
   $redHeader.className = 'red';
   $redFooter.className = 'red bottom-container';
   $modalContainer.className = '';
-
 }
