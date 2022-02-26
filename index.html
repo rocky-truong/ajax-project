@@ -12,8 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
-<body>
-  <header class="red">
+<body class="body">
+  <header class="red" id="red-header">
     <div class="container">
       <div class="header-row">
         <div class="column-full">
@@ -57,20 +57,11 @@
         <p class="no-favorites view hidden">There are no favorites yet. Start by searching for a Pokemon to favorite.</p>
         <div class="row">
         </div>
-        <div class="unfavorite-modal hidden" id="unfavorite-modal">
-          <h2>Are you sure you want to remove this Pokemon from your list?</h2>
-          <button class="yes-button">
-            <h1>Yes</h1>
-          </button>
-          <button class="no-button">
-            <h1>No</h1>
-          </button>
-        </div>
       </div>
     </div>
   </main>
   <footer>
-    <div class="red bottom-container">
+    <div class="red bottom-container" id="red-footer">
       <div class="footer-row">
         <div class="column-half center">
           <a href="#" class="red search-button task icon" data-view="search-pokemon">
@@ -87,6 +78,17 @@
       </div>
     </div>
   </footer>
+  <div id="modal-container">
+    <div class="unfavorite-modal hidden" id="unfavorite-modal">
+      <h2>Are you sure you want to remove this Pokemon from your list?</h2>
+      <button class="yes-button">
+        <h1>Yes</h1>
+      </button>
+      <button class="no-button">
+        <h1>No</h1>
+      </button>
+    </div>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

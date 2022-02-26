@@ -16,8 +16,14 @@ var $favoritesIcon = document.querySelector('.favorites-icon');
 var $favoritesLink = document.querySelector('.favorites-link');
 var $row = document.querySelector('.row');
 var $noFavorites = document.querySelector('.no-favorites');
-// var $unfavoriteButton = document.querySelector('.unfavorite-button');
 var $unfavoriteModal = document.querySelector('#unfavorite-modal');
+var $noButton = document.querySelector('.no-button');
+var $yesButton = document.querySelector('.yes-button');
+var $viewFavorites = document.querySelector('#view-favorites');
+var $body = document.querySelector('.body');
+var $redHeader = document.querySelector('#red-header');
+var $redFooter = document.querySelector('#red-footer');
+var $modalContainer = document.querySelector('#modal-container');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
@@ -25,6 +31,9 @@ $favoritesIcon.addEventListener('click', handleSwitch);
 $favoritesLink.addEventListener('click', handleSwitch);
 $form.addEventListener('submit', handleSubmit);
 $favoriteButton.addEventListener('click', handleFavorite);
+$row.addEventListener('click', unFavorite);
+$noButton.addEventListener('click', noButton);
+$yesButton.addEventListener('click', yesButton);
 
 function handleSwitch(event) {
   var closest = event.target.closest('.task');
@@ -155,12 +164,34 @@ if (data.nextFavoriteId === 1) {
   $noFavorites.setAttribute('class', 'no-favorites view');
 }
 
-$row.addEventListener('click', unFavorite);
-
 function unFavorite(event) {
   if (event.target.className === 'fas fa-heart fa-2x red-color favorites-heart' ||
   event.target.className === 'unfavorite-button') {
-    console.log('hi');
     $unfavoriteModal.className = 'unfavorite-modal';
+    $viewFavorites.className = 'view dimmed';
+    $body.className = 'body dimmer';
+    $redHeader.className = 'red dimmed';
+    $redFooter.className = 'red bottom-container dimmed';
+    $modalContainer.className = 'modal-container';
   }
+}
+
+function noButton(event) {
+  $unfavoriteModal.className = 'unfavorite-modal hidden';
+  $viewFavorites.className = 'view';
+  $body.className = 'body';
+  $redHeader.className = 'red';
+  $redFooter.className = 'red bottom-container';
+  $modalContainer.className = '';
+
+}
+
+function yesButton(event) {
+  $unfavoriteModal.className = 'unfavorite-modal hidden';
+  $viewFavorites.className = 'view';
+  $body.className = 'body';
+  $redHeader.className = 'red';
+  $redFooter.className = 'red bottom-container';
+  $modalContainer.className = '';
+
 }
