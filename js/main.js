@@ -156,6 +156,9 @@ function renderFavorites(pokemon) {
 }
 
 for (var i = 0; i < data.favorites.length; i++) {
+  if (data.favorites[i].name === '') {
+    continue;
+  }
   var newFav = renderFavorites(data.favorites[i]);
   $row.appendChild(newFav);
 }
@@ -163,6 +166,8 @@ for (var i = 0; i < data.favorites.length; i++) {
 if (data.nextFavoriteId === 1) {
   $noFavorites.setAttribute('class', 'no-favorites view');
 }
+
+var pokemon = null;
 
 function unFavorite(event) {
   if (event.target.className === 'fas fa-heart fa-2x red-color favorites-heart' ||
@@ -174,6 +179,7 @@ function unFavorite(event) {
     $redFooter.className = 'red bottom-container dimmed';
     $modalContainer.className = 'modal-container';
   }
+  pokemon = event.target.parentElement.previousSibling.textContent.toLowerCase();
 }
 
 function noButton(event) {
@@ -192,4 +198,13 @@ function yesButton(event) {
   $redHeader.className = 'red';
   $redFooter.className = 'red bottom-container';
   $modalContainer.className = '';
+  console.log(pokemon);
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].name === pokemon) {
+      data.favorites[i].description = '';
+      data.favorites[i].image = '';
+      data.favorites[i].name = '';
+      return;
+    }
+  }
 }
