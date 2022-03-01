@@ -168,7 +168,7 @@ if (data.nextFavoriteId === 1) {
 }
 
 var pokemon = null;
-
+var currentSlot = null;
 function unFavorite(event) {
   if (event.target.className === 'fas fa-heart fa-2x red-color favorites-heart' ||
   event.target.className === 'unfavorite-button') {
@@ -180,6 +180,11 @@ function unFavorite(event) {
     $modalContainer.className = 'modal-container';
   }
   pokemon = event.target.parentElement.previousSibling.textContent.toLowerCase();
+  currentSlot = event.target.parentElement;
+
+  if (currentSlot.className === 'unfavorite-button') {
+    currentSlot = currentSlot.parentElement;
+  }
 }
 
 function noButton(event) {
@@ -203,7 +208,8 @@ function yesButton(event) {
       data.favorites[i].description = '';
       data.favorites[i].image = '';
       data.favorites[i].name = '';
-      return;
+      currentSlot.remove();
+      break;
     }
   }
 }
