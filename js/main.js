@@ -24,6 +24,7 @@ var $body = document.querySelector('.body');
 var $redHeader = document.querySelector('#red-header');
 var $redFooter = document.querySelector('#red-footer');
 var $modalContainer = document.querySelector('#modal-container');
+var $searchInput = document.querySelector('#search-input');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
@@ -44,6 +45,9 @@ function handleSwitch(event) {
     } else {
       $allView[i].className = 'view';
     }
+  }
+  if (dataView === 'search-pokemon') {
+    $searchInput.focus();
   }
   if (data.nextFavoriteId === 1) {
     $noFavorites.setAttribute('class', 'no-favorites view');
