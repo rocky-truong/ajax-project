@@ -49,7 +49,7 @@ function handleSwitch(event) {
   if (dataView === 'search-pokemon') {
     $searchInput.focus();
   }
-  if (data.nextFavoriteId === 1) {
+  if ($row.childElementCount === 0) {
     $noFavorites.setAttribute('class', 'no-favorites view');
   }
 }
@@ -167,7 +167,7 @@ for (var i = 0; i < data.favorites.length; i++) {
   $row.appendChild(newFav);
 }
 
-if (data.nextFavoriteId === 1) {
+if ($row.childElementCount === 0) {
   $noFavorites.setAttribute('class', 'no-favorites view');
 }
 
@@ -215,5 +215,8 @@ function yesButton(event) {
       currentSlot.remove();
       break;
     }
+  }
+  if ($row.childElementCount === 0) {
+    $noFavorites.setAttribute('class', 'no-favorites view');
   }
 }
