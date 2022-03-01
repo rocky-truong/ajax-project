@@ -16,6 +16,15 @@ var $favoritesIcon = document.querySelector('.favorites-icon');
 var $favoritesLink = document.querySelector('.favorites-link');
 var $row = document.querySelector('.row');
 var $noFavorites = document.querySelector('.no-favorites');
+var $unfavoriteModal = document.querySelector('#unfavorite-modal');
+var $noButton = document.querySelector('.no-button');
+var $yesButton = document.querySelector('.yes-button');
+var $viewFavorites = document.querySelector('#view-favorites');
+var $body = document.querySelector('.body');
+var $redHeader = document.querySelector('#red-header');
+var $redFooter = document.querySelector('#red-footer');
+var $modalContainer = document.querySelector('#modal-container');
+var $searchInput = document.querySelector('#search-input');
 
 $searchLink.addEventListener('click', handleSwitch);
 $searchButton.addEventListener('click', handleSwitch);
@@ -23,6 +32,9 @@ $favoritesIcon.addEventListener('click', handleSwitch);
 $favoritesLink.addEventListener('click', handleSwitch);
 $form.addEventListener('submit', handleSubmit);
 $favoriteButton.addEventListener('click', handleFavorite);
+$row.addEventListener('click', unFavorite);
+$noButton.addEventListener('click', noButton);
+$yesButton.addEventListener('click', yesButton);
 
 function handleSwitch(event) {
   var closest = event.target.closest('.task');
@@ -34,7 +46,10 @@ function handleSwitch(event) {
       $allView[i].className = 'view';
     }
   }
-  if (data.nextFavoriteId === 1) {
+  if (dataView === 'search-pokemon') {
+    $searchInput.focus();
+  }
+  if ($row.childElementCount === 0) {
     $noFavorites.setAttribute('class', 'no-favorites view');
   }
 }
@@ -133,18 +148,75 @@ function renderFavorites(pokemon) {
   $h2.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
   $slotDiv.appendChild($h2);
 
+  var $button = document.createElement('button');
+  $button.setAttribute('class', 'unfavorite-button');
+  $slotDiv.appendChild($button);
+
   var $i = document.createElement('i');
   $i.setAttribute('class', 'fas fa-heart fa-2x red-color favorites-heart');
-  $slotDiv.appendChild($i);
+  $button.appendChild($i);
 
   return $slotDiv;
 }
 
 for (var i = 0; i < data.favorites.length; i++) {
+  if (data.favorites[i].name === '') {
+    continue;
+  }
   var newFav = renderFavorites(data.favorites[i]);
   $row.appendChild(newFav);
 }
 
-if (data.nextFavoriteId === 1) {
+if ($row.childElementCount === 0) {
   $noFavorites.setAttribute('class', 'no-favorites view');
+}
+
+var pokemon = null;
+var currentSlot = null;
+function unFavorite(event) {
+  if (event.target.className === 'fas fa-heart fa-2x red-color favorites-heart' ||
+  event.target.className === 'unfavorite-button') {
+    $unfavoriteModal.className = 'unfavorite-modal';
+    $viewFavorites.className = 'view dimmed';
+    $body.className = 'body dimmer';
+    $redHeader.className = 'red dimmed';
+    $redFooter.className = 'red bottom-container dimmed';
+    $modalContainer.className = 'modal-container';
+  }
+  pokemon = event.target.parentElement.previousSibling.textContent.toLowerCase();
+  currentSlot = event.target.parentElement;
+
+  if (currentSlot.className === 'unfavorite-button') {
+    currentSlot = currentSlot.parentElement;
+  }
+}
+
+function noButton(event) {
+  $unfavoriteModal.className = 'unfavorite-modal hidden';
+  $viewFavorites.className = 'view';
+  $body.className = 'body';
+  $redHeader.className = 'red';
+  $redFooter.className = 'red bottom-container';
+  $modalContainer.className = '';
+}
+
+function yesButton(event) {
+  $unfavoriteModal.className = 'unfavorite-modal hidden';
+  $viewFavorites.className = 'view';
+  $body.className = 'body';
+  $redHeader.className = 'red';
+  $redFooter.className = 'red bottom-container';
+  $modalContainer.className = '';
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].name === pokemon) {
+      data.favorites[i].description = '';
+      data.favorites[i].image = '';
+      data.favorites[i].name = '';
+      currentSlot.remove();
+      break;
+    }
+  }
+  if ($row.childElementCount === 0) {
+    $noFavorites.setAttribute('class', 'no-favorites view');
+  }
 }
